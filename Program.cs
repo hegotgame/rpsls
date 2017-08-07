@@ -10,11 +10,12 @@ namespace RPSLS
     {
         static void Main(string[] args)
         {
+            RockPaperScissorsLizardSpock run = new RockPaperScissorsLizardSpock();
             int userInput = 0;
             do
             {
-                userInput = DisplayMenu();
-            } while (userInput != 5);
+                userInput = RockPaperScissorsLizardSpock.DisplayMenu();
+            } while (userInput != 6);
             /*          PayCalculator run = new PayCalculator();
                         string PayRate = run.RunPayCalculator();
                         fizzbuzz letsFizzBuzz = new fizzbuzz();

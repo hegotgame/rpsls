@@ -1,1 +1,6 @@
 C:\Users\jgill\Documents\Visual Studio 2015\Projects\RPSLS\RPSLS\RPSLS\bin\Debug\RPSLS.exe.config
+C:\Users\jgill\Documents\Visual Studio 2015\Projects\RPSLS\RPSLS\RPSLS\obj\Debug\RPSLS.csprojResolveAssemblyReference.cache
+C:\Users\jgill\Documents\Visual Studio 2015\Projects\RPSLS\RPSLS\RPSLS\bin\Debug\RPSLS.exe
+C:\Users\jgill\Documents\Visual Studio 2015\Projects\RPSLS\RPSLS\RPSLS\bin\Debug\RPSLS.pdb
+C:\Users\jgill\Documents\Visual Studio 2015\Projects\RPSLS\RPSLS\RPSLS\obj\Debug\RPSLS.exe
+C:\Users\jgill\Documents\Visual Studio 2015\Projects\RPSLS\RPSLS\RPSLS\obj\Debug\RPSLS.pdb
