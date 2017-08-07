@@ -8,6 +8,34 @@ namespace RPSLS
 {
     class RockPaperScissorsLizardSpock
     {
+        public Player Player1;
+        public Player Player2;
+
+        public void GetNames()
+        {
+            Console.WriteLine("What is your gamer name, player 1?");
+            Player1.name = Console.ReadLine();
+            Console.WriteLine("Do you want to play against a (1) computer or (2) human?");
+            string split = Console.ReadLine();
+            switch (split)
+            {
+                case "1":
+                    Console.WriteLine("Okay, Artie Intel (the computer) will face you.");
+                    Player2.name = "Artie Intel";
+                    break;
+                case "2":
+                    Console.WriteLine("What is your gamer name, player 2?");
+                    Player2.name = Console.ReadLine();
+                    break;
+                default:
+                    Console.WriteLine("Invalid response.");
+                    GetNames();
+                    break;
+            }
+            Console.WriteLine("What is your gamer name, player 2?");
+            Player2.name = Console.ReadLine();
+        }
+
         static public int DisplayMenu()
         {
             Console.WriteLine("Make your choice!");
@@ -31,10 +59,10 @@ namespace RPSLS
             int player1 = DisplayMenu();
             return player1;
         }
-        static public int AI_Picks()
+        static public int PlayerPicks()
         {
-            int AI = DisplayMenu();
-            return AI;
+            int pick = DisplayMenu();
+            return pick;
         }
 
 
