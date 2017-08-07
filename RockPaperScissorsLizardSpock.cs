@@ -12,12 +12,11 @@ namespace RPSLS
         {
             Console.WriteLine("Make your choice!");
             Console.WriteLine();
-            Console.WriteLine("1. Rock");
-            Console.WriteLine("2. Paper");
-            Console.WriteLine("3. Scissors");
-            Console.WriteLine("4. Lizard");
-            Console.WriteLine("5. Spock");
-            Console.WriteLine("6. Quit");
+            Console.WriteLine("0. Rock");
+            Console.WriteLine("1. Paper");
+            Console.WriteLine("2. Scissors");
+            Console.WriteLine("3. Lizard");
+            Console.WriteLine("4. Spock");
             string result = Console.ReadLine();
             return Convert.ToInt32(result);
         }
@@ -50,12 +49,30 @@ namespace RPSLS
                { 2,1,2,1,0 }
             };
 
-            int game = gameBoard[Player1_Picks(), Player2_Picks()];
+            int game = gameBoard[Player2_Picks(), Player1_Picks()];
             return game;
         }
-        private int ScoreRound()
+        public int ScoreRound()
         {
-
+            int score = PlayRound();
+            if (score == 1)
+            {
+                Console.WriteLine("Player1 won this round.");
+            }
+            else if (score == 2)
+            {
+                Console.WriteLine("Player2 won this round.");
+            }
+            else if (score == 0)
+            {
+                Console.WriteLine("Players have tied this round.");
+            }
+            else
+            {
+                Console.WriteLine("An error occured in scoring this round.");
+            }
+            Console.ReadLine();
+            return score;
         }
             /*
                         play1 =
@@ -88,4 +105,3 @@ namespace RPSLS
                 */
         }
     }
-}
