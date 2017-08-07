@@ -18,19 +18,29 @@ namespace RPSLS
             Console.WriteLine("4. Lizard");
             Console.WriteLine("5. Spock");
             Console.WriteLine("6. Quit");
-            var result = Console.ReadLine();
+            string result = Console.ReadLine();
             return Convert.ToInt32(result);
         }
-        private void GenerateMatrix()
+
+        static public int Player2_Picks()
         {
-            List<string> instructors = new List<string>() { "Rock", "Paper", "Scissors", "Lizard", "Spock" };
+            int player2 = DisplayMenu();
+            return player2;
+        }
+        static public int Player1_Picks()
+        {
+            int player1 = DisplayMenu();
+            return player1;
+        }
+        static public int AI_Picks()
+        {
+            int AI = DisplayMenu();
+            return AI;
+        }
 
-            List<List<string>> collectionInstructors = new List<List<string>>();
-            collectionInstructors.Add(instructors);
-            Console.WriteLine(collectionInstructors[0][0]);
-            Console.WriteLine(collectionInstructors[0][5]);
 
-
+        private int PlayRound()
+        {
             int[,] gameBoard = new int[5, 5]
             {
                { 0,1,2,2,1 },
@@ -39,6 +49,14 @@ namespace RPSLS
                { 1,2,1,0,2 },
                { 2,1,2,1,0 }
             };
+
+            int game = gameBoard[Player1_Picks(), Player2_Picks()];
+            return game;
+        }
+        private int ScoreRound()
+        {
+
+        }
             /*
                         play1 =
                         play2 =
