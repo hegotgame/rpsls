@@ -25,13 +25,15 @@ namespace RPSLS
                 case "1":
                     Console.WriteLine("Okay, Artie Intel (the computer) will face you.");
                     Player2.name = "Artie Intel";
+                    Console.WriteLine();
                     break;
                 case "2":
                     Console.WriteLine("What is your gamer name, player 2?");
                     Player2.name = Console.ReadLine();
+                    Console.WriteLine();
                     break;
                 default:
-                    Console.WriteLine("Invalid response.");
+                    Console.WriteLine("Invalid response. Please enter '1' for computer or '2' for human, then press enter.");
                     GetNames();
                     break;
             }
@@ -74,6 +76,7 @@ namespace RPSLS
             Console.WriteLine("3. Lizard");
             Console.WriteLine("4. Spock");
             string result = Console.ReadLine();
+            Console.WriteLine();
             return Convert.ToInt32(result);
         }
 
@@ -99,15 +102,18 @@ namespace RPSLS
             {
                 Player1.wins++;
                 Console.WriteLine(Player1.name + " won this round, and their score is: " + Player1.wins);
+                Console.WriteLine();
             }
             else if (score == 2)
             {
                 Player2.wins++;
                 Console.WriteLine(Player2.name + " won this round, and their score is: " + Player2.wins);
+                Console.WriteLine();
             }
             else if (score == 0)
             {
-                Console.WriteLine("Players have tied this round.");
+                Console.WriteLine("Draw. Players have tied this round.");
+                Console.WriteLine();
             }
             else
             {
@@ -121,10 +127,12 @@ namespace RPSLS
         {
             Console.WriteLine(Player1.name + ": won " + Player1.wins);
             Console.WriteLine(Player2.name + ": won " + Player2.wins);
+            Console.WriteLine();
             if (Player1.wins == 2 || Player2.wins == 2)
             {
                 Console.WriteLine("***Congrats!!!!!***");
                 Console.WriteLine("End of Game");
+                Console.WriteLine();
                 Console.ReadLine();
             }
             else
