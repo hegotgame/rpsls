@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Player
+    class Human : Player
     {
-        public int pick;
-        public int wins = 0;
-        public string name;
-        public void Play()
+        public Human()
         {
+
         }
     }
 }

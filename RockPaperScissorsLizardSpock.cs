@@ -35,6 +35,8 @@ namespace RPSLS
         }
         private void GetPicks()
         {
+            Player1 = new Human();
+            Player2 = new Human();
             if (Player1.wins == 0 && Player2.wins == 0)
             {
                 GetNames();
@@ -73,25 +75,9 @@ namespace RPSLS
             return Convert.ToInt32(result);
         }
 
-        static public int Player2_Picks()
-        {
-            int player2 = DisplayMenu();
-            return player2;
-        }
-        static public int Player1_Picks()
-        {
-            int player1 = DisplayMenu();
-            return player1;
-        }
-        static public int PlayerPicks()
-        {
-            int pick = DisplayMenu();
-            return pick;
-        }
-
-
         private int PlayRound()
         {
+            GetPicks();
             int[,] solutionSpace = new int[5, 5]
             {
                { 0,1,2,2,1 },
@@ -126,34 +112,5 @@ namespace RPSLS
             Console.ReadLine();
             return score;
         }
-            /*
-                        play1 =
-                        play2 =
-                        int game = gameBoard[play1, play2];
-
-                        switch (game == 0)
-                        {
-                            Console.Write("Push. Play again.");
-                        }
-                        switch (game==1)
-                        {
-                            Console.Write("Player 1 wins.");
-                        }
-                        switch (game==2)
-                        {
-                            Console.Write("Player 2 wins.");
-                        }
-
-
-                        for (int i = 0; i < gameBoard.GetLength(0); i++)
-                        {
-                            for (int j = 0; j < gameBoard.GetLength(1); j++)
-                            {
-                                Console.Write(gameBoard[i, j]);
-                            }
-                            Console.Write(Environment.NewLine);
-                        }
-                        Console.ReadLine();
-                */
         }
     }
