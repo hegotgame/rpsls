@@ -10,9 +10,12 @@ namespace RPSLS
     {
         public Player Player1;
         public Player Player2;
+        public bool game = false;
 
         private void GetNames()
         {
+            Player1 = new Player();
+            Player2 = new Player();
             Console.WriteLine("What is your gamer name, player 1?");
             Player1.name = Console.ReadLine();
             Console.WriteLine("Do you want to play against a (1) computer or (2) human?");
@@ -32,12 +35,11 @@ namespace RPSLS
                     GetNames();
                     break;
             }
+            game = true;
         }
         private void GetPicks()
         {
-            Player1 = new Human();
-            Player2 = new Human();
-            if (Player1.wins == 0 && Player2.wins == 0)
+            if (game == false)
             {
                 GetNames();
             }
@@ -95,11 +97,13 @@ namespace RPSLS
             int score = PlayRound();
             if (score == 1)
             {
-                Console.WriteLine("Player1 won this round.");
+                Player1.wins++;
+                Console.WriteLine(Player1.name + " won this round, and their score is: " + Player1.wins);
             }
             else if (score == 2)
             {
-                Console.WriteLine("Player2 won this round.");
+                Player2.wins++;
+                Console.WriteLine(Player2.name + " won this round, and their score is: " + Player2.wins);
             }
             else if (score == 0)
             {
@@ -110,7 +114,22 @@ namespace RPSLS
                 Console.WriteLine("An error occured in scoring this round.");
             }
             Console.ReadLine();
+            Scoreboard();
             return score;
+        }
+        private void Scoreboard()
+        {
+            Console.WriteLine(Player1.name + ": won " + Player1.wins);
+            Console.WriteLine(Player2.name + ": won " + Player2.wins);
+            if (Player1.wins == 2 || Player2.wins == 0)
+            {
+                Console.WriteLine("***Congrats!!!!!***");
+                Console.WriteLine("End of Game");
+            }
+            else
+            {
+                ScoreRound();
+            }
         }
         }
     }
