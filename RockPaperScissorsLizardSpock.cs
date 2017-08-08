@@ -121,10 +121,11 @@ namespace RPSLS
         {
             Console.WriteLine(Player1.name + ": won " + Player1.wins);
             Console.WriteLine(Player2.name + ": won " + Player2.wins);
-            if (Player1.wins == 2 || Player2.wins == 0)
+            if (Player1.wins == 2 || Player2.wins == 2)
             {
                 Console.WriteLine("***Congrats!!!!!***");
                 Console.WriteLine("End of Game");
+                Console.ReadLine();
             }
             else
             {
