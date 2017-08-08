@@ -11,7 +11,7 @@ namespace RPSLS
         public Player Player1;
         public Player Player2;
 
-        public void GetNames()
+        private void GetNames()
         {
             Console.WriteLine("What is your gamer name, player 1?");
             Player1.name = Console.ReadLine();
@@ -32,9 +32,33 @@ namespace RPSLS
                     GetNames();
                     break;
             }
-            Console.WriteLine("What is your gamer name, player 2?");
-            Player2.name = Console.ReadLine();
         }
+        private void GetPicks()
+        {
+            if (Player1.wins == 0 && Player2.wins == 0)
+            {
+                GetNames();
+            }
+
+            Console.WriteLine(Player1.name + ",");
+            int p1p = DisplayMenu();
+            Player1.pick = p1p;
+
+
+            if (Player2.name == "Artie Intel")
+            {
+                Random random = new Random();
+                int ai_pick = random.Next(0, 5);
+                Player2.pick = ai_pick;
+            }
+            else
+            {
+                Console.WriteLine(Player2.name + ",");
+                int p2p = DisplayMenu();
+                Player2.pick = p2p;
+            }
+        }
+
 
         static public int DisplayMenu()
         {
@@ -68,7 +92,7 @@ namespace RPSLS
 
         private int PlayRound()
         {
-            int[,] gameBoard = new int[5, 5]
+            int[,] solutionSpace = new int[5, 5]
             {
                { 0,1,2,2,1 },
                { 2,0,1,1,2 },
@@ -77,7 +101,7 @@ namespace RPSLS
                { 2,1,2,1,0 }
             };
 
-            int game = gameBoard[Player2_Picks(), Player1_Picks()];
+            int game = solutionSpace[Player2.pick, Player1.pick];
             return game;
         }
         public int ScoreRound()
